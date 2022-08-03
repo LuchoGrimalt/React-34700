@@ -17,9 +17,9 @@ function ItemCount (props){
     }
     return(
         <div style={estilo}>
-            <button onClick={remItem}>➖</button>
+            <button onClick={remItem}>-</button>
             {contador}
-            <button onClick={addItem}>➕</button>
+            <button onClick={addItem}>+</button>
         </div>
     )
 }

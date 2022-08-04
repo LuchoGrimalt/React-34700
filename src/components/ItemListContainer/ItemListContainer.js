@@ -1,5 +1,7 @@
 import React from "react";
 import ItemCount from "../Cantidad";
+import ItemList from "./ItemList/ItemList";
+import { useState, useEffect } from "react";
 
 
 const estilo = {
@@ -13,19 +15,24 @@ const estilo = {
     display: 'flex',
     flexDirection: 'column',
     textAlign: 'center',
-
 }
 
-function itemListContainer(props) {
+export const ItemListContainer = (props) =>{
+    const [data,setData] = useState([])
+    const [cargando,setCargando] = useState(true)
+    useEffect ( ()=>{
+    getFetch
+        .then ((res) =>setData(res))
+        .catch ((error) => console.log('Error'))
+        .finally (() =>setCargando(false))
+    },[])
+
     return (
         <div style={estilo}> 
             {props.contenido}
-            <br />
             <img src="../IMG/ropa.png" alt=""></img>
-            <br />
-            <>x descripcion prod</>
-            <br />
-            <>x Precio de prod</>
+            <button type="button" >Ver detalle del artículo</button>
+            <ItemList />
             <br />
             <ItemCount stock={'5'} initial={'1'} /> 
             <button type="button" >Agregar al carrito</button>
@@ -33,4 +40,4 @@ function itemListContainer(props) {
     );
 }
 
-export default itemListContainer;
+export default ItemListContainer;
